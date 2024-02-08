@@ -39,4 +39,18 @@ map.on('load', () => {
             'circle-color': '#B42222'
         }
     });
+    // Add a data source from a GeoJSON file
+    map.addSource('buildings-data', {
+        type: 'geojson',
+        data: 'https://raw.githubusercontent.com/ahmadashraf1/GGR472-ex5/main/buildings.geojson' // Your URL to your buildings.geojson file
+    });
+
+    map.addLayer({
+        'id': 'buildings-point',
+        'type': 'circle',
+        'source': 'buildings-data',
+        'paint': {
+            'circle-radius': 5,
+            'circle-color': '#007cbf' }
+    });
 });
